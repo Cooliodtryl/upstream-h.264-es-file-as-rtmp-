@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FD9803A7-D414-4B3A-9F5C-63AAE78115BF}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>rtmp_file_server_cpp</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\;..\;..\..\rtmp_server_base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>librtmpd.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\rtmp_server_base\librtmp;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\rtmp_server_base\amf_byte_stream.h" />
+    <ClInclude Include="..\..\rtmp_server_base\bit_reader.h" />
+    <ClInclude Include="..\..\rtmp_server_base\bit_writter.h" />
+    <ClInclude Include="..\..\rtmp_server_base\simple_mutex.h" />
+    <ClInclude Include="..\..\rtmp_server_base\thread.h" />
+    <ClInclude Include="..\..\rtmp_server_base\util_tools.h" />
+    <ClInclude Include="..\data_list.h" />
+    <ClInclude Include="..\flv_reader.h" />
+    <ClInclude Include="..\flv_writter.h" />
+    <ClInclude Include="..\h264_frame_parser.h" />
+    <ClInclude Include="aac_frame_reader.h" />
+    <ClInclude Include="file_rtmp_server.h" />
+    <ClInclude Include="h264_frame_reader.h" />
+    <ClInclude Include="lib_rtmp.h" />
+    <ClInclude Include="rtmp_connection.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\rtmp_server_base\amf_byte_stream.c" />
+    <ClCompile Include="..\..\rtmp_server_base\bit_reader.c" />
+    <ClCompile Include="..\..\rtmp_server_base\bit_writter.c" />
+    <ClCompile Include="..\..\rtmp_server_base\simple_mutex.c" />
+    <ClCompile Include="..\..\rtmp_server_base\thread.c" />
+    <ClCompile Include="..\..\rtmp_server_base\util_tools.c" />
+    <ClCompile Include="..\data_list.c" />
+    <ClCompile Include="..\flv_reader.c" />
+    <ClCompile Include="..\flv_writter.c" />
+    <ClCompile Include="..\h264_frame_parser.c" />
+    <ClCompile Include="aac_frame_reader.cpp" />
+    <ClCompile Include="file_rtmp_server.cpp" />
+    <ClCompile Include="h264_frame_reader.cpp" />
+    <ClCompile Include="lib_rtmp.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="rtmp_connection.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

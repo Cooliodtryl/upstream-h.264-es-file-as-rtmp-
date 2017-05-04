@@ -1,0 +1,279 @@
+<!DOCTYPE Project SYSTEM "http://www.slickedit.com/dtd/vse/10.0/vpj.dtd">
+<Project
+	Version="10.0"
+	VendorName="SlickEdit"
+	TemplateName="GNU C/C++"
+	WorkingDir="."
+	BuildSystem="automakefile"
+	BuildMakeFile="Makefile">
+	<Config
+		Name="Debug"
+		Type="gnuc"
+		DebugCallbackName="gdb"
+		Version="1"
+		OutputFile="%bdrtmp_file_server"
+		CompilerConfigName="Latest Version">
+		<Menu>
+			<Target
+				Name="Compile"
+				MenuCaption="&amp;Compile"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				OutputExts="*.o"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='g++ -c %xup  %defd -g -o "%bd%n%oe" %i "%f"'/>
+			</Target>
+			<Target
+				Name="Link"
+				MenuCaption="&amp;Link"
+				ShowOnMenu="Never"
+				Dialog="_gnuc_options_form Link"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='g++ %xup -g -o "%o" %f %libs'/>
+			</Target>
+			<Target
+				Name="Build"
+				MenuCaption="&amp;Build"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='gmake -f "Makefile" CFG=%b'/>
+			</Target>
+			<Target
+				Name="Rebuild"
+				MenuCaption="&amp;Rebuild"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='gmake -f "Makefile" rebuild CFG=%b'/>
+			</Target>
+			<Target
+				Name="Debug"
+				MenuCaption="&amp;Debug"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveNone"
+				RunFromDir="%rw">
+				<Exec CmdLine='vsdebugio -prog "%o"'/>
+			</Target>
+			<Target
+				Name="Execute"
+				MenuCaption="E&amp;xecute"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%o"'/>
+			</Target>
+			<Target
+				Name="dash"
+				MenuCaption="-"
+				Deletable="0">
+				<Exec/>
+			</Target>
+			<Target
+				Name="GNU C Options"
+				MenuCaption="GNU C &amp;Options..."
+				ShowOnMenu="HideIfNoCmdLine"
+				Deletable="0"
+				SaveOption="SaveNone">
+				<Exec
+					CmdLine="gnucoptions"
+					Type="Slick-C"/>
+			</Target>
+		</Menu>
+		<List Name="GNUC Options">
+			<Item
+				Name="LinkerOutputType"
+				Value="Executable"/>
+		</List>
+		<Includes>
+			<Include Dir="/root/lantaiyuan/study/simple_server/rtmp_server_base/"/>
+			<Include Dir="/root/lantaiyuan/study/simple_server/"/>
+			<Include Dir="/root/lantaiyuan/study/simple_server/rtmp_file_server_cpp/rtmp_file_server_cpp/"/>
+			<Include Dir="/root/lantaiyuan/study/simple_server/rtmp_file_server_cpp"/>
+		</Includes>
+		<Libs PreObjects="0">
+			<Lib File="../rtmp_server_base/librtmp/librtmp.a"/>
+			<Lib File="../rtmp_server_base/polarssl-1.1.1/library/libpolarssl.a"/>
+			<Lib File="../rtmp_server_base/zlib-1.2.5/libz.a"/>
+			<Lib File="-lpthread"/>
+		</Libs>
+		<PostBuildCommands>
+			<Exec CmdLine='---@echo -e "\e[1;31m all compiled  job finished! \e[0m"'/>
+		</PostBuildCommands>
+	</Config>
+	<Config
+		Name="Release"
+		Type="gnuc"
+		DebugCallbackName="gdb"
+		Version="1"
+		OutputFile="%bdrtmp_file_server"
+		CompilerConfigName="Latest Version">
+		<Menu>
+			<Target
+				Name="Compile"
+				MenuCaption="&amp;Compile"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				OutputExts="*.o"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='g++ -c %xup %defd -o "%bd%n%oe" %i "%f"'/>
+			</Target>
+			<Target
+				Name="Link"
+				MenuCaption="&amp;Link"
+				ShowOnMenu="Never"
+				Dialog="_gnuc_options_form Link"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='g++ %xup -o "%o" %f %libs'/>
+			</Target>
+			<Target
+				Name="Build"
+				MenuCaption="&amp;Build"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='gmake -f "Makefile" CFG=%b'/>
+			</Target>
+			<Target
+				Name="Rebuild"
+				MenuCaption="&amp;Rebuild"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='gmake -f "Makefile" rebuild CFG=%b'/>
+			</Target>
+			<Target
+				Name="Debug"
+				MenuCaption="&amp;Debug"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveNone"
+				RunFromDir="%rw">
+				<Exec CmdLine='vsdebugio -prog "%o"'/>
+			</Target>
+			<Target
+				Name="Execute"
+				MenuCaption="E&amp;xecute"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%o"'/>
+			</Target>
+			<Target
+				Name="dash"
+				MenuCaption="-"
+				Deletable="0">
+				<Exec/>
+			</Target>
+			<Target
+				Name="GNU C Options"
+				MenuCaption="GNU C &amp;Options..."
+				ShowOnMenu="HideIfNoCmdLine"
+				Deletable="0"
+				SaveOption="SaveNone">
+				<Exec
+					CmdLine="gnucoptions"
+					Type="Slick-C"/>
+			</Target>
+		</Menu>
+		<List Name="GNUC Options">
+			<Item
+				Name="LinkerOutputType"
+				Value="Executable"/>
+		</List>
+		<Includes>
+			<Include Dir="/root/lantaiyuan/study/simple_server/rtmp_server_base/"/>
+			<Include Dir="/root/lantaiyuan/study/simple_server/"/>
+			<Include Dir="/root/lantaiyuan/study/simple_server/rtmp_file_server_cpp/rtmp_file_server_cpp/"/>
+			<Include Dir="/root/lantaiyuan/study/simple_server/rtmp_file_server_cpp"/>
+		</Includes>
+		<Libs PreObjects="0">
+			<Lib File="../rtmp_server_base/librtmp/librtmp.a"/>
+			<Lib File="../rtmp_server_base/polarssl-1.1.1/library/libpolarssl.a"/>
+			<Lib File="../rtmp_server_base/zlib-1.2.5/libz.a"/>
+			<Lib File="-lpthread"/>
+		</Libs>
+		<PostBuildCommands>
+			<Exec CmdLine='---@echo -e "\e[1;31m all compiled  job finished! \e[0m"'/>
+		</PostBuildCommands>
+	</Config>
+	<Files>
+		<Folder
+			Name="Source Files"
+			Filters="*.c;*.C;*.cc;*.cpp;*.cp;*.cxx;*.c++;*.prg;*.pas;*.dpr;*.asm;*.s;*.bas;*.java;*.cs;*.sc;*.e;*.cob;*.html;*.rc;*.tcl;*.py;*.pl;*.d;*.m;*.mm;*.go">
+			<F N="rtmp_file_server_cpp/aac_frame_reader.cpp"/>
+			<F N="../rtmp_server_base/amf_byte_stream.c"/>
+			<F N="../rtmp_server_base/bit_reader.c"/>
+			<F N="../rtmp_server_base/bit_writter.c"/>
+			<F N="data_list.c"/>
+			<F N="rtmp_file_server_cpp/file_rtmp_server.cpp"/>
+			<F N="flv_reader.c"/>
+			<F N="flv_writter.c"/>
+			<F N="h264_frame_parser.c"/>
+			<F N="rtmp_file_server_cpp/h264_frame_reader.cpp"/>
+			<F N="rtmp_file_server_cpp/lib_rtmp.cpp"/>
+			<F N="rtmp_file_server_cpp/main.cpp"/>
+			<F N="rtmp_file_server_cpp/rtmp_connection.cpp"/>
+			<F N="../rtmp_server_base/simple_mutex.c"/>
+			<F N="../rtmp_server_base/thread.c"/>
+			<F N="../rtmp_server_base/util_tools.c"/>
+		</Folder>
+		<Folder
+			Name="Header Files"
+			Filters="*.h;*.H;*.hh;*.hpp;*.hxx;*.inc;*.sh;*.cpy;*.if">
+			<F N="rtmp_file_server_cpp/aac_frame_reader.h"/>
+			<F N="../rtmp_server_base/amf_byte_stream.h"/>
+			<F N="../rtmp_server_base/bit_reader.h"/>
+			<F N="../rtmp_server_base/bit_writter.h"/>
+			<F N="data_list.h"/>
+			<F N="rtmp_file_server_cpp/file_rtmp_server.h"/>
+			<F N="flv_reader.h"/>
+			<F N="flv_writter.h"/>
+			<F N="h264_frame_parser.h"/>
+			<F N="rtmp_file_server_cpp/h264_frame_reader.h"/>
+			<F N="rtmp_file_server_cpp/lib_rtmp.h"/>
+			<F N="rtmp_file_server_cpp/rtmp_connection.h"/>
+			<F N="../rtmp_server_base/simple_mutex.h"/>
+			<F N="../rtmp_server_base/thread.h"/>
+			<F N="../rtmp_server_base/util_tools.h"/>
+		</Folder>
+		<Folder
+			Name="Resource Files"
+			Filters="*.ico;*.cur;*.dlg"/>
+		<Folder
+			Name="Bitmaps"
+			Filters="*.bmp"/>
+		<Folder
+			Name="Other Files"
+			Filters="">
+			<F
+				N="Makefile"
+				Type="Makefile"/>
+		</Folder>
+	</Files>
+</Project>
